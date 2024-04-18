@@ -27,19 +27,41 @@
 #include <stdio.h>
 #include <string.h>
 
+char buscarArgv(char* argv[],int argc, char palabra[])
+{
+    int i;
+    for(i=0;i<argc;i++)
+    {
+        if(strcmp(argv[i],palabra) ==0)
+        {
+            return i;
+        }
+    }
+
+    return 0;
+}
+
 void negativo(int argc,char* argv[])
 {
-    if(argc > 1 && strcmp(argv[1], "--negativo") == 0)
+    char posi = 0;
+    char palabra[11] = "--negativo";
+    posi = buscarArgv(argv,argc,palabra);
+
+    if(argc > 1 && posi >= 0)
     {
-        printf("Entro en negativo");
+        printf("\nEntro en negativo");
     }
 }
 
-void escala_de_grises(int argc, char* argv[])
+void escala_de_grises(int argc,char* argv[])
 {
-    if(argc > 1 && strcmp(argv[1], "--escala-de-grises") == 0)
+    char posi = 0;
+    char palabra[19] = "--escala-de-grises";
+    posi = buscarArgv(argv,argc,palabra);
+
+    if(argc > 1 && posi >= 0)
     {
-        printf("Entro en escala-de-grises");
+        printf("\nEntro en escala-de-grises");
     }
 }
 

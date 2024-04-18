@@ -39,3 +39,18 @@
 	<stdio.h>
 	<string.h>
 
+1713444312 source:c:\users\u61781\desktop\trabajo_practico_progra\main.c
+	<stdio.h>
+	"funciones_estudiante.h"
+	"constantes.h"
+
+1713460361 c:\users\u61781\desktop\trabajo_practico_progra\funciones_estudiante.h
+	"constantes.h"
+
+1713444312 c:\users\u61781\desktop\trabajo_practico_progra\constantes.h
+
+1713460498 source:c:\users\u61781\desktop\trabajo_practico_progra\funciones_estudiante.c
+	"constantes.h"
+	<stdio.h>
+	<string.h>
+
