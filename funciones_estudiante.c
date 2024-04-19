@@ -30,104 +30,60 @@
 char buscarArgv(char* argv[],int argc, char palabra[])
 {
     int i;
-    for(i=0;i<argc;i++)
+    for(i=0; i<argc; i++)
     {
         if(strcmp(argv[i],palabra) ==0)
         {
             return i;
         }
     }
-
     return 0;
 }
 
 void negativo(int argc,char* argv[])
 {
     char posi = 0;
-    char palabra[11] = "--negativo";
-    posi = buscarArgv(argv,argc,palabra);
+    char palabra[] = "--negativo";
+    //char nombreArchivo[] ="negativo.bmp";
 
-    if(argc > 1 && posi >= 0)
+    //Busca la palabra --negativo en argv
+    posi = buscarArgv(argv,argc,palabra);
+    //Si encontro negativo hace
+    if(argc > 1 && posi > 0)
     {
-        printf("\nEntro en negativo");
+        printf("Entro en negativo\n");
+        //Abrir el archivo de la imagen
+        //argc-1 --> siempre va a ser el nombre del archivo imagen ya que se manda ultimo
+        FILE * f = fopen(argv[argc-1], "rb");
+        //mensaje de error si no abre el archivo
+        if(!f)
+        {
+            printf("No se pudo abrir el archivo\n");
+        }
+        else
+        {
+            printf("Se abrio correctamente el archivo\n");
+        }
+
+        //Abrir el archivo de la imagen modificada
+        FILE * f1 = fopen("negativo.bmp", "wb");
+        if(!f1)
+            printf("No se pudo crear el archivo\n");
     }
 }
 
 void escala_de_grises(int argc,char* argv[])
 {
     char posi = 0;
-    char palabra[19] = "--escala-de-grises";
+    char palabra[] = "--escala-de-grises";
     posi = buscarArgv(argv,argc,palabra);
 
-    if(argc > 1 && posi >= 0)
+    if(argc > 1 && posi > 0)
     {
-        printf("\nEntro en escala-de-grises");
+        printf("Entro en escala-de-grises\n");
     }
 }
 
-void aumentar_contraste(int argc,  char* argv[])
-{
-    if(argc > 1 && strcmp(argv[1], "--aumentar-contraste") == 0)
-    {
-        printf("Entro en aumentar-contraste");
-    }
-}
-
-void reducir_contraste(int argc,  char* argv[])
-{
-    if(argc > 1 && strcmp(argv[1], "--reducir-contraste") == 0)
-    {
-        printf("Entro en reducir-contraste");
-    }
-}
-
-void tonalidad_azul(int argc,  char* argv[])
-{
-    if(argc > 1 && strcmp(argv[1],"--tonalidad-azul") == 0)
-    {
-        printf("Entro en tonalidad-azul ");
-    }
-}
-
-void tonalidad_verde(int argc,  char* argv[])
-{
-    if(argc > 1 && strcmp(argv[1], "--tonalidad-verde") == 0)
-    {
-        printf("Entro en tonalidad-verde");
-    }
-}
-
-void tonalidad_roja(int argc,  char* argv[])
-{
-    if(argc > 1 && strcmp(argv[1], "--tonalidad-roja") == 0)
-    {
-        printf("Entro en tonalidad-roja");
-    }
-}
-
-void recortar(int argc,  char* argv[])
-{
-    if(argc > 1 && strcmp(argv[1], "--recortar") == 0)
-    {
-        printf("Entro en recortar");
-    }
-}
-
-void rotar_derecha(int argc,  char* argv[])
-{
-    if(argc > 1 && strcmp(argv[1], "--rotar-derecha") == 0)
-    {
-        printf("Entro en recortar");
-    }
-}
-
-void rotar_izquierda(int argc,  char* argv[])
-{
-    if(argc > 1 && strcmp(argv[1], "--rotar-izquierda") == 0)
-    {
-        printf("Entro en rotar-izquierda");
-    }
-}
 
 
 int solucion(int argc, char* argv[])
@@ -143,7 +99,7 @@ int solucion(int argc, char* argv[])
 
     negativo(argc, argv);
     escala_de_grises(argc, argv);
-    aumentar_contraste(argc, argv);
+    /*aumentar_contraste(argc, argv);
     reducir_contraste(argc, argv);
     tonalidad_azul(argc, argv);
     tonalidad_roja(argc, argv);
@@ -151,7 +107,7 @@ int solucion(int argc, char* argv[])
     recortar(argc, argv);
     rotar_izquierda(argc, argv);
     rotar_derecha(argc, argv);
-
+    */
     return TODO_OK;
 }
 

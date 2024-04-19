@@ -7,6 +7,7 @@ int solucion(int argc, char* argv[]);
 
 char buscarArgv(char* argv[],int argc, char palabra[]); //Preguntar tamaño de palabra --> malloc ?
 
+
 void negativo(int, char* []);
 void escala_de_grises(int, const char* []);
 void aumentar_contraste(int, const char* []);
