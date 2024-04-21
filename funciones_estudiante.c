@@ -40,6 +40,18 @@ char buscarArgv(char* argv[],int argc, char palabra[])
     return 0;
 }
 
+void abrirImagen(t_metadata metadata,t_pixel pixel, char nombre)
+{
+    FILE *imagen = fopen(nombre,"rb");
+    if(!imagen)
+        printf("No se abrio el archivo");
+    else
+    {
+        fseek(imagen,0, SEEK_SET);
+        fread()
+    }
+}
+
 void negativo(int argc,char* argv[])
 {
     char posi = 0;
@@ -53,17 +65,6 @@ void negativo(int argc,char* argv[])
     {
         printf("Entro en negativo\n");
         //Abrir el archivo de la imagen
-        //argc-1 --> siempre va a ser el nombre del archivo imagen ya que se manda ultimo
-        FILE * f = fopen(argv[argc-1], "rb");
-        //mensaje de error si no abre el archivo
-        if(!f)
-        {
-            printf("No se pudo abrir el archivo\n");
-        }
-        else
-        {
-            printf("Se abrio correctamente el archivo\n");
-        }
 
         //Abrir el archivo de la imagen modificada
         FILE * f1 = fopen("negativo.bmp", "wb");
@@ -97,17 +98,10 @@ int solucion(int argc, char* argv[])
     }
     printf("----------------------------------------- \n");
 
+    abrirImagen()
     negativo(argc, argv);
     escala_de_grises(argc, argv);
-    /*aumentar_contraste(argc, argv);
-    reducir_contraste(argc, argv);
-    tonalidad_azul(argc, argv);
-    tonalidad_roja(argc, argv);
-    tonalidad_verde(argc, argv);
-    recortar(argc, argv);
-    rotar_izquierda(argc, argv);
-    rotar_derecha(argc, argv);
-    */
+
     return TODO_OK;
 }
 
